@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 // import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
 export default function Home() {
+  const [blogs, setblogs] = useState([]);
+
+  useEffect(() => {
+    let url = "http://localhost:3000/api/allBlogs";
+    fetch(url)
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        setblogs(json);
+      });
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,17 +35,19 @@ export default function Home() {
 
         <div className={styles.blogs}>
           <ul>
-            <Link href="/viewblog">
-              <a>
-                <li>
-                  <h4>learn next js </h4>
-                  <p>
-                    fnbsfnblsjbnjsnlbnslnblnsfnbnsdbnlsjnblnslbnlsnblsnlbnlsn
-                  </p>
-                  <span>1-5 mouth</span>
-                </li>
-              </a>
-            </Link>
+            {blogs.map(({ title, slug, duration }) => {
+              return (
+                <Link href="/viewblog">
+                  <a>
+                    <li>
+                      <h4>{title}</h4>
+                      <p>{slug}</p>
+                      <span>{duration}</span>
+                    </li>
+                  </a>
+                </Link>
+              );
+            })}
           </ul>
         </div>
       </main>
