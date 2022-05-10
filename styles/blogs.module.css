@@ -1,0 +1,50 @@
+.blogs {
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+.blogsTitle {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: #0070f3;
+}
+
+.blogs ul {
+  list-style: none;
+  gap: 10px;
+}
+.blogs ul li {
+  width: 70vw;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.blogs ul li:hover,
+.blogs ul li:focus,
+.blogs ul li:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.blogs ul li h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.blogs ul li p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
