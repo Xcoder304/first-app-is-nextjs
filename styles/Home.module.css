@@ -70,8 +70,7 @@
   gap: 10px;
 }
 .blogs ul li {
-  width: 400px;
-  max-width: 70vw;
+  width: 70vw;
   margin: 1rem;
   padding: 1rem;
   text-align: left;

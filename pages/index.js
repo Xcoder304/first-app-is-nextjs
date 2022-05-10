@@ -35,14 +35,13 @@ export default function Home() {
 
         <div className={styles.blogs}>
           <ul>
-            {blogs.map(({ title, slug, duration }) => {
+            {blogs.map(({ title, content, slug }, index) => {
               return (
-                <Link href="/viewblog">
+                <Link href={`/viewblog/${slug}`} key={index}>
                   <a>
                     <li>
                       <h4>{title}</h4>
-                      <p>{slug}</p>
-                      <span>{duration}</span>
+                      <p>{content?.substr(0, 150)}...</p>
                     </li>
                   </a>
                 </Link>
