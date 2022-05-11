@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from "../styles/blogs.module.css";
 import Link from "next/dist/client/link";
+import * as fs from "fs";
 
-const blogs = (props) => {
+const Blogs = (props) => {
   const [blogs, setblogs] = useState(props.allBlogs);
   return (
     <div className={styles.blogs}>
@@ -48,4 +49,4 @@ export async function getStaticProps(context) {
   };
 }
 
-export default blogs;
+export default Blogs;

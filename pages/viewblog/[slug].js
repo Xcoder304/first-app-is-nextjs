@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import * as fs from "fs";
 
-const slug = (props) => {
+const Slug = (props) => {
   const [blogs, setblogs] = useState(props.Blog);
   // const router = useRouter();
 
@@ -57,4 +57,4 @@ export async function getStaticProps(context) {
   };
 }
 
-export default slug;
+export default Slug;
