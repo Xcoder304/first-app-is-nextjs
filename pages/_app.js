@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Frist-Project</title>
+        <title>Frist-Pro</title>
         <meta
           name="description"
           content="This is my first next js paratice-project"

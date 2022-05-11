@@ -22,7 +22,7 @@ const Blogs = (props) => {
 
   return (
     <div className={styles.blogs}>
-      <h1 className={styles.blogsTitle}>Blogs</h1>
+      <h1 className={styles.blogsTitle}>All Blogs</h1>
       <ul>
         <InfiniteScroll
           dataLength={blogs.length}

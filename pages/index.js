@@ -21,8 +21,8 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>Fist Pro</h1>
-        <h2>My First Next js Project</h2>
+        <h1 className={styles.title}>welcome to Fist Pro</h1>
+        <h2>Top 3 blogs</h2>
 
         <div className={styles.blogs}>
           <ul>
@@ -58,7 +58,7 @@ export async function getStaticProps(context) {
   let data = await fs.promises.readdir("blogdata", "utf-8");
   let files;
   let allBlogs = [];
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < 3; i++) {
     let item = data[i];
     files = await fs.promises.readFile(`blogdata/${item}`, "utf-8");
     allBlogs.push(JSON.parse(files));
