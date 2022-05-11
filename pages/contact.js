@@ -9,6 +9,13 @@ const Contact = () => {
     message: "",
   });
 
+  const [resetUserData, setresetUserData] = useState({
+    name: "",
+    email: "",
+    phonenumber: "",
+    message: "",
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -25,6 +32,7 @@ const Contact = () => {
       .then((data) => {
         console.log("Success:", data);
         alert("your message is send successfully.. :)");
+        setuserData(resetUserData);
       })
       .catch((error) => {
         console.error("Error:", error);

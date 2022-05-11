@@ -2,6 +2,7 @@ import * as fs from "fs";
 
 export default async function handler(req, res) {
   let data = await fs.promises.readdir(`blogdata`, "utf-8");
+  data = data.slice(0, req.query.count);
   let files;
   let blogs = [];
   for (let i = 0; i < data.length; i++) {
