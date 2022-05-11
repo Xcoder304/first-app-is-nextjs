@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import Image from "next/image";
+import * as fs from "fs";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
@@ -44,10 +45,24 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps(context) {
-  let data = await fetch("http://localhost:3000/api/allBlogs");
-  let allBlogs = await data.json();
+// export async function getServerSideProps(context) {
+//   let data = await fetch("http://localhost:3000/api/allBlogs");
+//   let allBlogs = await data.json();
 
+//   return {
+//     props: { allBlogs }, // will be passed to the page component as props
+//   };
+// }
+
+export async function getStaticProps(context) {
+  let data = await fs.promises.readdir("blogdata", "utf-8");
+  let files;
+  let allBlogs = [];
+  for (let i = 0; i < data.length; i++) {
+    let item = data[i];
+    files = await fs.promises.readFile(`blogdata/${item}`, "utf-8");
+    allBlogs.push(JSON.parse(files));
+  }
   return {
     props: { allBlogs }, // will be passed to the page component as props
   };
